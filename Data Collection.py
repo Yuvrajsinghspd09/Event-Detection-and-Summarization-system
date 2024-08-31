@@ -6,32 +6,29 @@ class TwitterDataCollector:
         self.output_file = output_file
 
     def collect_sample_stream(self):
-        class SampleStreamListener(tweepy.Stream):
-            def __init__(self, api_key, api_secret_key, access_token, access_token_secret, max_tweets, output_file):
-                super().__init__(api_key, api_secret_key, access_token, access_token_secret)
+        class SampleStreamListener(tweepy.StreamingClient):
+            def __init__(self, bearer_token, max_tweets, output_file):
+                super().__init__(bearer_token)
                 self.max_tweets = max_tweets
                 self.tweet_count = 0
                 self.output_file = output_file
 
-            def on_data(self, data):
+            def on_tweet(self, tweet):
                 if self.tweet_count < self.max_tweets:
                     with open(self.output_file, 'a') as f:
-                        f.write(data)
+                        json.dump(tweet.data, f)
+                        f.write('\n')
                     self.tweet_count += 1
                     return True
                 else:
+                    self.disconnect()
                     return False
 
             def on_error(self, status):
                 print(f"Error: {status}")
                 return True
 
-        listener = SampleStreamListener(
-            self.api.auth.consumer_key,
-            self.api.auth.consumer_secret,
-            self.api.auth.access_token,
-            self.api.auth.access_token_secret,
-            self.max_tweets,
-            self.output_file
-        )
-        listener.filter(languages=['en'])
+        # You need to use a bearer token for StreamingClient
+        bearer_token = "YOUR_BEARER_TOKEN"
+        listener = SampleStreamListener(bearer_token, self.max_tweets, self.output_file)
+        listener.sample(tweet_fields=['author_id', 'created_at', 'lang'])
