@@ -1,0 +1,7 @@
+asyncio
+torch
+asyncpraw
+pandas
+transformers
+nest_asyncio
+nltk
