@@ -5,3 +5,5 @@ pandas
 transformers
 nest_asyncio
 nltk
+textblob
+python-dateutil
