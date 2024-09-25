@@ -13,8 +13,8 @@ async def main():
     print("Starting data collection...")
 
     reddit = asyncpraw.Reddit(
-        client_id="MXvTTPJnwZCjHRXarkpQKA",
-        client_secret="uaFWby-c9cCGl24F8MnAEp9fa5izvQ",
+        client_id="",
+        client_secret="",
         user_agent="event-summarizer"
     )
 
