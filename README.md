@@ -1,82 +1,49 @@
-# Event-Detection-and-Summarization-system
+# NewsGuardian: AI-Powered Reddit News Detector, Summarizer, and Credibility Analyzer 🌐🔍🛡️
 
-# 🌐 Reddit News Summarizer
+Hey there! Welcome to NewsGuardian, your smart companion for navigating the wild world of Reddit news. This tool doesn't just find news - it breaks it down, summarizes it, and helps you figure out what's trustworthy.
 
-Harness the power of AI to summarize the latest news from Reddit! This tool collects top posts from popular news subreddits and generates concise summaries using state-of-the-art language models.
+## What's This All About? 🤔
 
-## 🚀 Features
+Ever felt lost in the sea of Reddit news, unsure what to believe? NewsGuardian's got your back! Here's what it does:
 
-- Collects recent posts from major news subreddits
-- Utilizes multiple summarization techniques:
-  - BART (Facebook)
-  - T5 (Google)
-  - PEGASUS (Google)
-  - Custom extractive summarization
-- Asynchronous data collection for improved performance
-- Customizable number of top news items to summarize
+- Hunts down fresh, hot news from top Reddit communities
+- Creates quick, smart summaries using cutting-edge AI
+- Gives each story a "trust score" to help you spot the real deal
+- Breaks down the writing style and how the content is structured
+- Checks if the news is recent and relevant
+- Looks at how reliable the poster and the community are
+- Labels posts as "Likely True", "Potentially Misleading", or "Needs a Fact-Check"
 
-## 🛠️ Installation
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/reddit-news-summarizer.git
-   cd reddit-news-summarizer
-   ```
+## Getting Started 🚀
 
-2. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
+1. Clone this repo to your machine
+2. Install the stuff we need:
+pip install -r requirements.txt
 
-3. Set up your Reddit API credentials:
-   - Create a Reddit account and navigate to https://www.reddit.com/prefs/apps
-   - Create a new app, select "script" as the type
-   - Note down your client ID and client secret
 
-4. Update the `client_id` and `client_secret` in the `main()` function with your credentials.
+3. Set up your Reddit API creds (check out Reddit's dev site for this)
+4. Update the `client_id` and `client_secret` in `main.py` with your info
 
-## 💻 Usage
+## Let's Run This Thing! 💻
 
-Run the script:
+Just fire up the main script:
+python main.py
 
-```
-python reddit_news_summarizer.py
-```
+It'll ask how many top news items you want to see from each subreddit. Type in a number and let it generate!
 
-When prompted, enter the number of top news items you want to summarize.
+## What's Under the Hood? 🔧
 
-## 🧠 How It Works
+- `main.py`: The boss - runs the whole show
+- `reddit_collector.py`: Our Reddit post hunter
+- `summarizer.py`: The brains behind our summaries
+- `credibility_scorer.py`: Figures out how trustworthy a post is
+- `utils.py`: A bunch of helpful tools we use along the way
 
-1. **Data Collection**: Fetches recent posts from specified news subreddits using PRAW (Python Reddit API Wrapper).
-2. **Summarization**:
-   - BART: Facebook's bidirectional transformer model
-   - T5: Google's Text-to-Text Transfer Transformer
-   - PEGASUS: Google's abstractive summarization model
-   - Extractive: Custom algorithm based on word frequency
-3. **Output**: Displays summaries, post details, and relevant metadata for each top news item.
+## Wanna Tweak It? 🛠️
 
-## 🔧 Customization
-
-- Modify the `subreddits` list in `main()` to target different subreddits.
-- Adjust the `time_filter` and `limit` parameters in `RedditDataCollector` to change the post collection criteria.
-- Fine-tune summarization parameters in the `Summarizer` class methods.
-
-## 📊 Performance
-
-The script utilizes asyncio for efficient data collection and leverages GPU acceleration (if available) for summarization tasks.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgements
-
-- [PRAW](https://praw.readthedocs.io/) for Reddit API interaction
-- [Hugging Face Transformers](https://huggingface.co/transformers/) for pre-trained summarization models
-- [NLTK](https://www.nltk.org/) for natural language processing tasks
-
-Happy summarizing! 📰✨
+Feel free to mess around with the code! You can:
+- Change which subreddits we look at in `main.py`
+- Adjust how we pick posts in `reddit_collector.py`
+- Fiddle with the summary settings in `summarizer.py`
+- Tweak how we score credibility in `credibility_scorer.py`
