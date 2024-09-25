@@ -1,5 +1,5 @@
 # NewsGuardian: 
-##AI-Powered Reddit News Detector, Summarizer, and Credibility Analyzer 🌐🔍🛡️
+## AI-Powered Reddit News Detector, Summarizer, and Credibility Analyzer🌐🔍🛡️
 
 Hey there! Welcome to NewsGuardian, your smart companion for navigating the wild world of Reddit news. This tool doesn't just find news - it breaks it down, summarizes it, and helps you figure out what's trustworthy.
 
