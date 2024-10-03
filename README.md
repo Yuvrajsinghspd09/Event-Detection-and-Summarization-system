@@ -26,7 +26,7 @@ pip install -r requirements.txt
 3. Set up your Reddit API creds (check out Reddit's dev site for this)
 4. Update the `client_id` and `client_secret` in `main.py` with your info
 
-## Let's Run This Thing! 💻
+## To Run This Thing! 💻
 
 Just fire up the main script:
 python main.py
